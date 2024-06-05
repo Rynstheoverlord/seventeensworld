@@ -1,0 +1,120 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container p-4 border rounded shadow-sm bg-dark text-white" style="max-width: 800px;">
+  <div class="text-center mb-4">
+    <p class="h1 title">Admin Portal</p>
+  </div>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <a class="btn btn-link text-white" href="/">Back to blog</a>
+    <a class="btn btn-link text-white" href="/documentation">Need help?</a>
+  </div>
+</div>
+<br> 
+
+{%if error_message != None%}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <i class="fa-solid fa-circle-exclamation"></i>
+  {{error_message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+{%endif%}
+
+{%if success_message != None%}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <i class="fa-solid fa-circle-check"></i>
+  {{success_message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+{%endif%}
+
+<div class="container d-flex justify-content-end">
+
+  
+  
+   <button class="btn btn-outline-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Delete post</button>
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">Delete post</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form method="post">
+    <select class="form-select" aria-label="Delete posts" name="post-id">
+  
+      {%for post in posts%}
+  <option value="{{post.id}}">{{post.id}}</option>
+      {%endfor%}
+  
+    </select>
+      <div class="d-flex justify-content-center py-1">
+      <button type="submit" class="btn btn-danger" name="delete-post">Delete post</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <div class="form-container mx-auto mt-5 p-4 border rounded shadow-sm" data-bs-theme="dark">
+    <form method="post">
+      <div class="mb-4">
+        <label for="post-title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="post-title" name="post-title" aria-describedby="PostTitle">
+      </div>
+      <div class="mb-4">
+        <label for="post-id" class="form-label">Id</label>
+        <input type="text" class="form-control" id="post-id" name="post-id">
+      </div>
+      <div class="mb-4">
+        <label for="post-content" class="form-label">Content</label>
+        <textarea class="form-control" id="post-content" rows="5" name="post-content"></textarea>
+      </div>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary btn-lg" name="post-submit">Post</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <p class="lead">
+     Sensitive stuff:
+  </p>
+  
+     <button class="btn btn-outline-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvaspass" aria-controls="offcanvaspass">Change password</button>
+
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvaspass" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel">Change password: </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="container">
+       <form method="post">
+          <div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">
+    <i class="fa-solid fa-lock"></i>
+  </span>
+  <input type="password" class="form-control" placeholder="New Password" aria-label="Password" aria-describedby="addon-wrapping" name="password">
+</div>
+         <span class="text-danger">Be careful! This is a sensitive action.</span>
+         <button class="btn btn-danger w-100" type="submit" name="change-password">Change password</button>
+       </form>
+       
+    </div>
+    
+    
+  </div>
+</div>
+</div>
+
+
+</div>
+<br>
+{%endblock%}

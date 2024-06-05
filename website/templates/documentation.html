@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4 mb-4">Admin Blog Portal Usage Documentation</h1>
+<div class="d-flex justify-content-end">
+   <a class="icon-link text-decoration-none" href="/admin">Go back</a>
+</div>
+
+<hr>
+
+    <div class="container">
+       <p class="lead">
+          Although the admin portal is not complex and supposedly easy to use, this documentation page still exists just in case.
+       </p>
+
+      <h1 class="display-6">
+         ID's
+      </h1>
+      
+      <p>
+         The first confusing concept might be the use of <span class="text-info">ID's</span> that this blog employs in order to create elements; and this is compulsory.
+        The form might not force you to enter an id but it does indeed store the empty space as an ID.
+      </p>
+
+      <p>
+         ID's are important for when you want to delete posts as posts are deleted used their id and so <strong class="text-warning">please make your id's easy to remember.</strong>
+        Despite this warning, there is support for remembering ID's as you might notice a little badge on each post with the post id on it.
+      </p>
+
+      <p>
+         The naming convention for creating IDs is in this format: eg 1F, 2DE, 74E. These are all examples on the preferred ways to name IDs.
+      </p>
+      
+      
+      <h1 class="display-6">
+         Deleting Posts
+      </h1>
+
+      <p>
+         We've gone over ID's in the previous heading and so this should be fairly easy to understand.
+
+        All you have to do is to select the corresponding id of a post and click on delete post.
+
+      <strong class="text-danger">Note that deletion is permanent so double check before deleting any post!</strong>
+      </p>
+      
+       <p>
+          For any other complaints, please contact the developer.
+       </p>
+       
+    </div>
+    
+{% endblock %}

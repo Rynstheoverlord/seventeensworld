@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="display-4 text-center p-2">
+            17's World
+           <span class="lead">feedback form</span>
+        </h1>
+
+        {%if feedback_sent%}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+<i class="fa-solid fa-circle-check"></i>
+  Feedback sent successfully! we love hearing from you.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {%endif%}
+
+        <div class="d-flex justify-content-end">
+           <a href="/" class="icon-link text-decoration-none">Go back</a>
+        </div>
+        
+       <form method="post">
+          <div class="form-floating py-2">
+  <textarea class="form-control" placeholder="Leave your feedback here..
+      " id="floatingTextarea2" style="height: 100px" name="feedback"></textarea>
+  <label for="floatingTextarea2">Feedback</label>
+          </div>
+<button class="btn btn-info w-100">Send Feedback</button>
+
+       </form>
+       
+    </div>
+    
+{% endblock %}
